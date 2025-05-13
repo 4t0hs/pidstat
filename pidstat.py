@@ -393,8 +393,6 @@ def define_argument_parser() -> argparse.ArgumentParser:
     parser.add_argument("pid", type=int, help="The PID of the process to measure.")
     return parser
 
-
-# --- 使い方 ---
 if __name__ == "__main__":
     print("-" * 20)
     print("Process Stat Tool")
