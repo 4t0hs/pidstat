@@ -1,5 +1,12 @@
 {
 	"cSpell.words": [
+		"getpid",
+		"pidstat",
 		"sysconf"
+	],
+	"python.analysis.typeCheckingMode": "basic",
+	"python.testing.pytestEnabled": true,
+	"pylint.interpreter": [
+		".venv/bin/python"
 	]
 }

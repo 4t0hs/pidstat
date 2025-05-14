@@ -19,7 +19,7 @@ def cpu_load(level):
     elif level == 4:
         while True:
             os.system("dd if=/dev/zero of=/dev/null bs=10M count=100")
-    elif level == 5:
+    else:
         while True:
             os.system("dd if=/dev/zero of=/dev/null bs=100M count=100")
 
@@ -28,9 +28,9 @@ def main():
     if len(sys.argv) > 1:
         level = int(sys.argv[1])
     else:
-        level = 2
+        level = 1
     print(f"Running CPU load at level: {level}({os.getpid()})")
-    threads = []
+    threads: list[threading.Thread] = []
     for i in range(10):
         t = threading.Thread(target=cpu_load, args=(level,))
         t.start()
@@ -40,8 +40,8 @@ def main():
         while True:
             time.sleep(1)
     except KeyboardInterrupt:
-        for t in threads:
-            t.join()
+        print("Shutting down...")
+        os._exit(0)
 
 
 if __name__ == "__main__":
